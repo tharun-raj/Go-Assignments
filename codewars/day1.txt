@@ -1,0 +1,99 @@
+//https://www.codewars.com/kata/54da5a58ea159efa38000836/go
+package kata
+
+func FindOdd(seq []int) int {
+  count := 0
+  //loop over the seq
+  for _, v := range(seq){
+    //loop over the seq again
+    for _, j := range(seq){
+      //if the number repeat increment the count by one
+      if v == j{
+        count++
+      }
+    }
+    //check if the number repeation is an odd number
+    if count % 2 != 0{
+      return v
+    }
+    //else reset the counter
+    count = 0
+  }
+  
+//https://www.codewars.com/kata/554b4ac871d6813a03000035/
+package kata
+
+import "strings"
+import "strconv"
+
+func HighAndLow(in string) string {
+  // Code here or
+  str := strings.Split(in, " ")
+  high, _ := strconv.Atoi(str[0])
+	low, _ := strconv.Atoi(str[0])
+  for _, v := range str {
+		num, _ := strconv.Atoi(v)
+		if num > high {
+			high = num
+		}
+		if num < low {
+			low = num
+		}
+	}
+  return strconv.Itoa(high) + " " + strconv.Itoa(low)
+}
+
+//https://www.codewars.com/kata/585a033e3a36cdc50a00011c
+package kata
+
+import "fmt"
+
+func FreqSeq(str string, sep string) string {
+  count := 0
+  freq := ""
+  for _, i := range(str){
+    for _, j := range(str){
+      if i == j{
+        count += 1
+      }
+    }
+    freq += fmt.Sprintf("%d%s", count, sep)
+    count = 0
+  }
+  return freq[:len(freq)-1] //Code goes here!
+}
+
+
+https://www.codewars.com/kata/59e49b2afc3c494d5d00002a/
+package kata
+
+func SortVowels(s string) string {
+  if s == "" {
+        return ""
+  }
+  word := ""
+  tmp := "
+  for _, v := range(s){
+    tmp = string(v)
+    if v == 'a'|| v == 'e' || v =='i' || v =='o' || v =='u' ||  v =='A' || v == 'E' || v =='I' || v =='O'|| v =='U'{
+      word += ("\n|" + tmp )
+    } else{
+      word += ( "\n" + tmp + "|")
+    }
+  }
+	return word[1:]
+}
+
+//https://www.codewars.com/kata/56747fd5cb988479af000028/
+package kata
+
+func GetMiddle(s string) string {
+    length := len(s)
+    if length == 0 {
+        return ""
+    }
+    if length % 2 == 0 {
+        return s[length/2 - 1 : length/2 + 1]
+    }
+    return string(s[length/2])
+}
